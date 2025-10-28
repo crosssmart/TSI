@@ -12,7 +12,7 @@ for (let i = 2; i < numero; i++) {
     }
 }
 
-if (ehPrimo == true) {
+if (ehPrimo) {
     console.log(numero, "é um número primo.")
 } else {
     console.log(numero, "não é um número primo.")
