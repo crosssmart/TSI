@@ -1,0 +1,22 @@
+const prompt = require("prompt-sync")()
+
+let v = []
+let i
+let pMaior = 0
+let pMenor = 0
+
+for (i = 0; i < 10; i++) {
+    v[i] = Number(prompt("Digite um número: "))
+}
+
+for (i = 0; i < 10; i++) {
+    if (v[i] > v[pMaior]) {
+        pMaior = i
+    }
+    if (v[i] < v[pMenor]) {
+        pMenor = i
+    }
+}
+
+console.log("Maior elemento: " + v[pMaior]);
+console.log("Maior elemento: " + v[pMenor]);
