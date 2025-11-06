@@ -4,27 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM</title>
+    <title>Formulário</title>
 </head>
 
 <body>
-    <form action="submit">
+    <form action="/enviar_contato" method="post">
         <fieldset>
-            <legend>Testes</legend>
+            <legend>Formulário de Contato</legend>
             <label for="nome">Nome Completo:</label>
             <input type="text" name="nome_usuario" id="nome" placeholder="Seu nome aqui...">
             <br><br>
 
-            <label for="senha">Senha:</label>
-            <input type="password" name="senha_usuario" id="senha" placeholder="Sua senha aqui...">
-            <br><br>
-
             <label for="email">Email:</label>
             <input type="email" name="email_usuario" id="email" placeholder="Seu email aqui...">
-            <br><br>
-
-            <label for="site">Site Pessoal:</label>
-            <input type="url" name="site_usuario" id="site" placeholder="https://...">
             <br><br>
 
             <label for="tel">Telefone:</label>
@@ -33,6 +25,15 @@
 
             <label for="msg">Sua Mensagem:</label><br>
             <textarea name="msg_usuario" id="msg" rows="5" cols="40" placeholder="Digite uma mensagem aqui"></textarea>
+
+            <br><br>
+            <legend>Motivo do Contato:</legend>
+            <label><input type="radio" name="motivo" value="M">
+                Dúvida</label>
+            <label><input type="radio" name="motivo" value="G">
+                Sugestão</label>
+            <label><input type="radio" name="motivo" value="G">
+                Problema Técnico</label>
         </fieldset>
     </form>
 </body>
