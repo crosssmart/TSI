@@ -18,5 +18,5 @@ for (i = 0; i < 10; i++) {
     }
 }
 
-console.log("Posição do maior elemento: " + pMaior);
-console.log("Posição do menor elemento: " + pMenor);
+console.log("Posição do maior elemento (" + v[pMaior] + "): " + pMaior);
+console.log("Posição do menor elemento (" + v[pMenor] + "): " + pMenor);
