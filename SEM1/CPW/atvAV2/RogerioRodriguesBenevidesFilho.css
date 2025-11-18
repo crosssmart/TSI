@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:active {
+  color: #00b4d8;
+}
+
+a:hover {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+li {
+  list-style-type: none;
+  margin-block: 10px;
+  margin-inline: 150px;
+  font-size: 40px;
+}
+
+li:hover {
+  color: white;
+}
+
+nav > ul {
+  border-radius: 20px;
+  background-color: #90e1ef78;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {
+  background-color: #03045e;
+  color: #caf0f8;
+  font-family: Nunito;
+}
+
+header {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-shadow: 0 0 20px #d9d9d9;
+}
+
+input {
+  text-align: left;
+  border: solid 1px white;
+  background-color: #d9d9d9;
+  border-radius: 7px;
+  padding-inline: 50px;
+  padding-block: 7px;
+}
+
+#sobre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sobre figure img {
+  border: solid 0.5px white;
+  border-radius: 20px;
+}
+
+#sobre p {
+  text-align: justify;
+  font-size: 20px;
+  margin-inline: 200px;
+  margin-block: 20px;
+}
+
+#sobre h3 {
+  color: transparent;
+  font-size: 40px;
+  background-image: linear-gradient(to right, #90e0ef 0%, #00b4d8 100%);
+  text-shadow: 0 0 20px #d9d9d9;
+  background-clip: text;
+}
+
+#projetos,
+#video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 30px;
+}
+
+#projetos h3 {
+  color: transparent;
+  font-size: 40px;
+  background-image: linear-gradient(to right, #90e0ef 0%, #00b4d8 100%);
+  text-shadow: 0 0 20px #d9d9d9;
+  background-clip: text;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#container div {
+  padding: 10px;
+  margin: 20px;
+  border: solid 1px white;
+  border-radius: 10px;
+  background-color: #484a4eb2;
+}
+
+#container div a {
+  color: 90ef;
+}
+
+#contato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contato h3 {
+  color: transparent;
+  font-size: 40px;
+  background-image: linear-gradient(to right, #90e0ef 0%, #00b4d8 100%);
+  text-shadow: 0 0 20px #d9d9d9;
+  background-clip: text;
+}
+
+#contato form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.form-div {
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+  margin-inline: 200px;
+}
+
+.div-esp {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-item {
+  margin: 10px;
+  text-align: center;
+}
+
+.form-item select {
+  border-radius: 10px;
+  padding: 10px 40px;
+  appearance: none;
+}
+button {
+  border: solid 1px white;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  padding-inline: 35px;
+  padding-block: 15px;
+  background-color: #075a8a;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifólio#</title>
+    <link rel="stylesheet" href="RogerioRodriguesBenevidesFilho.css">
+</head>
+
+<body>
+    <header>
+
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <h1>Rogerio Rodrigues Benevides Filho</h1>
+        <h2>Desenvolvedor Full-Stack</h2>
+
+
+    </header>
+
+    <main>
+        <section id="sobre">
+            <h3>Sobre mim</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus necessitatibus molestiae nostrum
+                recusandae voluptatum tempore error mollitia vitae consectetur ullam officia laborum libero voluptatibus
+                earum excepturi qui, labore quia soluta!</p>
+            <figure>
+                <img src="pfp.jpg" alt="Imagem exemplo" width="420" height="300">
+            </figure>
+        </section>
+
+        <section id="projetos">
+            <h3>Projetos</h3>
+            <div id="container">
+                <div>
+                    <h4>Projeto 1</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, exercitationem?</p>
+                    <a href="#">Saiba Mais</a>
+                </div>
+                <div>
+                    <h4>Projeto 2</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, exercitationem?</p>
+                    <a href="#">Saiba Mais</a>
+                </div>
+                <div>
+                    <h4>Projeto 3</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, exercitationem?</p>
+                    <a href="#">Saiba Mais</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OmKrKTwtukE?si=JRcJpCecrtaVbojn"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+
+        <section id="contato">
+            <h3>Contato</h3>
+
+            <form action="#" method="post">
+                <div class="form-div">
+                    <div class="form-item">
+                        <label for="nome">Nome Completo</label><br>
+                        <input type="text" name="nome" id="nome" required minlength="4" maxlength="50">
+                    </div>
+                    <div class="form-item">
+                        <label for="email">E-mail</label><br>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-div">
+                    <div class="form-item">
+                        <label for="interesse">Area de interesse</label><br>
+                        <select name="interesse" id="interesse">
+                            <option value="front">Front-End</option>
+                            <option value="back">Back-End</option>
+                            <option value="full" selected>Full-Stack</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="div-esp">
+                    <label>Disponibilidade para Contato</label>
+                    <div class="form-div">
+                        <div class="form-item">
+                            <input type="radio" name="tipo" id="manha" value="manha" required>
+                            <label for="manha">Manhã</label>
+                        </div>
+
+                        <div class="form-item">
+                            <input type="radio" name="tipo" id="tarde" value="tarde">
+                            <label for="tarde">Tarde</label>
+                        </div>
+
+                        <div class="form-item">
+                            <input type="radio" name="tipo" id="noite" value="noite">
+                            <label for="profissional">Noite</label>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="div-esp">
+                    <label for="">Serviços de Interesse</label>
+                    <div class="form-div">
+                        <div class="form-item">
+                            <label>
+                                <input type="checkbox" name="servicos" value="criacao_site">
+                                Criação de Site</label><br>
+                        </div>
+                        <div class="form-item">
+                            <label>
+                                <input type="checkbox" name="servicos" value="devApp">
+                                Desenvolvimento de App</label><br>
+                        </div>
+                        <div class="form-item">
+                            <label>
+                                <input type="checkbox" name="servicos" value="consult">
+                                Consultoria</label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-div">
+                    <div class="form-item">
+                        <label for="msg">Mensagem</label><br><br>
+                        <textarea name="msg" id="msg" required rows="10" cols="100"></textarea>
+                    </div>
+
+                </div>
+
+                <br>
+                <div class="form-div">
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
