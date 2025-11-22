@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco</title>
+    <style>
+        body {
+            margin: 0;
+            justify-items: center;
+        }
+
+        section {
+            margin: 25px;
+            width: 720px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+        }
+
+        input:focus,
+        textarea:focus {
+            border: 2px solid red;
+            border-radius: 3px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="contato">
+        <form action="" method="post">
+            <label for="nomeUsuario">Nome de Usuário</label><br>
+            <input type="text" name="nomeUsuario" id="nomeUsuario" required minlength="4" pattern="[a-z0-9]{4,}">
+
+            <br><br>
+            <label for="email">E-mail</label> <br>
+            <input type="email" name="email" id="email" required>
+
+            <br><br>
+            <label for="assuntos">Assunto</label><br>
+            <select name="select" id="">
+                <option value="assunto1">Assunto 1</option>
+                <option value="assunto2">Assunto 2</option>
+                <option value="assunto3">Assunto 3</option>
+            </select>
+
+            <br><br>
+            <label for="mensagem">Mensagem</label><br>
+            <textarea name="mensagem" id="mensagem" minlength="20"></textarea>
+
+            <br><br>
+            <button>Enviar</button>
+        </form>
+
+        <br>
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29903.030591194114!2d-55.77104175!3d-20.4701696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x947de6612717b985%3A0xd6834342765f0281!2sParque%20da%20Lagoa%20Comprida!5e0!3m2!1spt-BR!2sbr!4v1763819077229!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+</body>
+
+</html>

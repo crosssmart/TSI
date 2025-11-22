@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Currículo — Seu Nome</title>
+    <meta name="description" content="Currículo online de [Seu Nome] — sobre, experiência, educação e contato.">
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #Menu {
+            position: fixed;
+        }
+
+        nav>ul {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+        }
+
+        nav>ul>li {
+            margin-inline: 50px;
+        }
+
+        main {
+            margin-top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav id="Menu">
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#educacao">Educação</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="cv.pdf" download="CV-SeuNome.pdf">Baixar PDF</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Seu Nome</h1>
+        <section id="sobre">
+            <h2>Sobre</h2>
+            <p>Resumo curto de 2–3 linhas apresentando você: competências, anos de experiência e
+                objetivo profissional.</p>
+            <p>Profissional com X anos de experiência em [área], com foco em entrega de valor e trabalho em equipe.</p>
+        </section>
+
+        <section id="experiencia">
+            <h2>Experiência</h2>
+
+            <article>
+                <h3>Cargo — Empresa ABC</h3>
+                <p>Jan 2021 — Presente · Localidade</p>
+                <p>Descrição sucinta das responsabilidades e resultados.</p>
+            </article>
+
+            <hr>
+
+            <article>
+                <h3>Cargo — Empresa XYZ</h3>
+                <p>Mar 2018 — Dez 2020 · Localidade</p>
+                <p>Descrição sucinta das responsabilidades e resultados.</p>
+            </article>
+        </section>
+
+        <section id="educacao">
+            <h2>Educação</h2>
+            <ul>
+                <li><strong>Nome do Curso</strong> — Universidade · 2014 — 2017</li>
+                <li><strong>Curso Complementar</strong> — Instituição · 2012 — 2013</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <aside id="contato">
+        <h2>Habilidades & Contato</h2>
+        <p>Liste habilidades e formas de contato.</p>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>Comunicação</li>
+        </ul>
+    </aside>
+
+    <footer>
+        <p>Rogerio Filho</p>
+    </footer>
+
+</body>
+
+</html>
