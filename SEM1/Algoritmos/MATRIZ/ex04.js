@@ -1,29 +1,29 @@
 const prompt = require("prompt-sync")()
 
-
 let m = []
-let posL = 0, posC = 0
 
 for (let l = 0; l < 3; l++) {
     m[l] = []
 
     for (let c = 0; c < 3; c++) {
-        m[l][c] = Number(prompt("Digite um número M[" + l + "][" + c + "]: "))
+        m[l][c] = Number(prompt("Digite o valor para a posição M[" + l + "][" + c + "]: "))
     }
 }
 
+let numBuscador = Number(prompt("Digite o valor a ser buscado: "))
+let encontrado = false
 for (let l = 0; l < 3; l++) {
     for (let c = 0; c < 3; c++) {
-        if (m[l][c] > m[posL][posC]) {
-            posL = l
-            posC = c
+        if (m[l][c] === numBuscador) {
+            encontrado = true
+            break
         }
     }
 }
 
-console.log("Matriz:");
-for (let l = 0; l < m.length; l++) {
-    console.log(m[l]);
+if (encontrado) {
+    console.log("O valor", numBuscador, "foi Encontrado na matriz.")
+} else {
+    console.log("O valor", numBuscador, "Não foi Encontrado na matriz")
 }
-console.log("O maior valor é", m[posL][posC], "e está na posição [" + posL + "][" + posC + "].");
 
