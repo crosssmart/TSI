@@ -1,6 +1,7 @@
 const prompt = require("prompt-sync")()
 
 let m = []
+let simetria = false
 
 for (let l = 0; l < 3; l++) {
     m[l] = []
@@ -9,20 +10,26 @@ for (let l = 0; l < 3; l++) {
     }
 }
 
-let numBuscador = Number(prompt("Digite o valor a ser buscado: "))
-let encontrado = false
+console.log("Matriz:");
+for (let l = 0; l < m.length; l++) {
+    console.log(m[l]);
+}
+
+
 for (let l = 0; l < 3; l++) {
     for (let c = 0; c < 3; c++) {
-        if (m[l][c] === numBuscador) {
-            encontrado = true
+        if (m[l][c] == m[c][l]) {
+            simetria = true
+        } else {
+            simetria = false
             break
         }
     }
 }
 
-if (encontrado) {
-    console.log("O valor", numBuscador, "foi Encontrado na matriz.")
-} else {
-    console.log("O valor", numBuscador, "Não foi Encontrado na matriz")
-}
 
+if (simetria) {
+    console.log("A matriz é simétrica.");
+} else {
+    console.log("A matriz não é simétrica.");
+}

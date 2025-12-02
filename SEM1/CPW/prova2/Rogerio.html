@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions</title>
+    <link rel="stylesheet" href="Rogerio.css">
+</head>
+
+<body>
+    <header>
+        <!-- Nav -->
+        <nav>
+            <h1>Logo Empresa</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li id="nav_item_princ"><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner -->
+        <section id="home">
+            <div>
+                <h1 class="home_items">Inovação e Tecnologia para o seu <i>Futuro</i></h1>
+                <p class="home_items">Novas Tecnologias - Novas Conquistas</p>
+            </div>
+        </section>
+
+        <!-- Sobre -->
+        <section id="sobre">
+            <h2 class="sobre_items">Sobre Nós</h2>
+            <p class="sobre_items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, praesentium esse cum
+                temporibus minus <br>
+                corporis culpa quae sed ullam quaerat eius repudiandae. Aliquid assumenda non harum architecto quidem
+                consectetur qui.</p>
+        </section>
+
+        <!-- Nossos Serviços e form -->
+        <section id="servicos">
+            <!-- cards -->
+            <div class="serv_cards">
+                <h2>Nossos Serviços</h2>
+                <div class="cards_div">
+                    <div class="card">
+                        <img src="pessoa.png" alt="imagem de icone de pessoa" width="50px" height="50px">
+                        <h3>Consultoria de TI</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, suscipit.</p>
+                    </div>
+                    <div class="card">
+                        <img src="terminal-de-codigo.png" alt="imagem de terminal" width="50px" height="50px">
+                        <h3>Consultoria de TI</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, suscipit.</p>
+                    </div>
+                    <div class="card">
+                        <img src="escudo.png" alt="imagem escudo" width="50px" height="50px">
+                        <h3>Consultoria de TI</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, suscipit.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- forms -->
+            <div class="form_div">
+                <div class="form_card">
+                    <h3>Entre em Contato</h3>
+                    <form method="post">
+                        <div class="form_items_div">
+                            <div class="form_item">
+                                <label for="nome">Nome *</label>
+                                <input type="text" name="nome" id="nome" required minlength="4" pattern="[a-z0-9]{4,}">
+                            </div>
+
+                            <div class="form_item">
+                                <label for="email">E-mail *</label>
+                                <input type="email" name="email" id="email" required>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form_items_div">
+                            <div class="form_item">
+                                <label for="telefone">Telefone/Whatsapp *</label>
+                                <input type="tel" name="telefone" id="telefone" placeholder="(XX) 9XXXX-XXXX" required>
+                            </div>
+
+                            <div class="form_item">
+                                <label for="empresa">Nome da Empresa (Opcional)</label>
+                                <input type="text" name="empresa" id="empresa">
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="form_items_div">
+                            <select name="assunto" id="assunto" required>
+                                <option value="" disabled selected hidden>*Assunto*</option>
+                                <option value="oportunidade">Oportunidade</option>
+                                <option value="suporte">Suporte</option>
+                                <option value="parceria">Parceria</option>
+                                <option value="outros">Outros</option>
+                            </select>
+
+                            <div class="form_item">
+                                <label for="mensagem">Mensagem *</label>
+                                <textarea name="mensagem" id="mensagem" required cols="19"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit">Enviar Mensagem</button>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer_div">
+            <div class="footer_up">
+                <p>
+                    Address - Ace 16, <br>
+                    Street CentrellSchuts 1801 <br>
+                    www.techsolutions.com/
+                </p>
+
+                <div class="footer_media">
+                    <p>Social Media</p>
+                    <a href="#"><img src="icons8-facebook-novo-50.png" alt="facebook icone" width="40px"
+                            height="40px"></a>
+                    <a href="#"><img src="icons8-twitter-50.png" alt=" twitter icone antigo" width="40px"
+                            height="40px"></a>
+                    <a href="#"><img src="icons8-instagram-30.png" alt=" instagram icone" width="40px"
+                            height="40px"></a>
+                </div>
+            </div>
+            <p>Copyright © 2022 Tech Solutions</p>
+        </div>
+    </footer>
+</body>
+
+</html>
