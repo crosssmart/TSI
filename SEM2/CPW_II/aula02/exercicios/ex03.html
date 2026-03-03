@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    <form id="formulario">
+        <label for="usuario">Usuario</label> <br>
+        <input type="text" name="usuario" id="usuario">
+
+        <br><br>
+        <label for="senha">Senha</label><br>
+        <input type="password" name="senha" id="senha">
+
+        <br><br>
+        <button type="submit">Conectar</button>
+    </form>
+
+    <p id="mensagemForm"></p>
+
+
+
+    <script>
+        const usuario = "Aluno1"
+        const senha = "123456789"
+
+        let msg = document.getElementById("mensagemForm")
+
+        document.getElementById("formulario").addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            let username = document.getElementById("usuario").value
+            let password = document.getElementById("senha").value
+
+            if (username !== usuario || senha !== password) {
+                msg.textContent = "Usuario ou senha incorretos!"
+            } else {
+                msg.textContent = "Conectado"
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
