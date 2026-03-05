@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício03</title>
+</head>
+
+<body>
+    <form id="form">
+
+        <label for="name">Nome</label><br>
+        <input type="text" name="name" id="nome">
+
+        <br><br>
+
+        <label for="sobren">Sobrenome</label><br>
+        <input type="text" name="sobren" id="sobrenome">
+
+        <br><br>
+
+        <label for="turma">Turma</label><br>
+        <input type="text" name="turma" id="turma">
+
+        <br><br>
+
+        <button onclick="mostrarValores()">Enviar</button>
+    </form>
+
+
+    <script>
+        function mostrarValores() {
+            let nome = document.getElementById("nome").value
+            let sobrenome = document.getElementById("sobrenome").value
+            let turma = document.getElementById("turma").value
+
+
+            alert("Nome: " + nome + "\nSobrenome: " + sobrenome + "\nTurma: " + turma)
+        }
+    </script>
+</body>
+
+</html>

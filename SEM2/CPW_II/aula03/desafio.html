@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <h1 id="text">Isso pode ser Alterado com os botões abaixo</h1>
+
+    <button onclick="tamanho()">Mudar Tamanho</button><br><br>
+    <button onclick="cor()">Mudar Cor</button><br><br>
+    <button onclick="fonte()">Mudar Fonte</button><br><br>
+
+
+    <script>
+
+        let texto = document.getElementById("text")
+
+        function tamanho() {
+            texto.style.fontSize = "50px"
+        }
+
+        function cor() {
+            texto.style.color = "magenta"
+        }
+
+        function fonte() {
+            texto.style.fontFamily = "Arial"
+        }
+    </script>
+</body>
+
+</html>
