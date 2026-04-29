@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arredondando</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        label {
+            margin: 10px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 20px;
+            margin: 20px;
+            background-color: black;
+            color: wheat;
+            border: solid white;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2> Digite três número para serem arredondados de maneiras diferentes.</h2>
+    <label for="number1">Número 1</label><br>
+    <input type="number" name="number1" id="number_1"><br><br>
+
+    <label for="number1">Número 2</label><br>
+    <input type="number" name="number2" id="number_2"><br><br>
+
+    <label for="number1">Número 3</label><br>
+    <input type="number" name="number3" id="number_3">
+
+
+    <br><br>
+    <button id="btn" onclick="arredondar()" type="submit">Arredondar</button>
+    <script>
+
+        function arredondar() {
+            let n1 = Math.round(document.getElementById("number_1").value)
+            let n2 = Math.ceil(document.getElementById("number_2").value)
+            let n3 = Math.floor(document.getElementById("number_3").value)
+
+            if (n1 == '' || n2 == '' || n3 == '') {
+                return alert('Dados não inseridos corretamente')
+            } else {
+                alert(`Número arredondados
+            
+            1° Número(round): ${n1}
+            2° Número(ceil): ${n2}
+            3° Número(floor): ${n3}`)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

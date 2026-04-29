@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 08 - Layout Responsivo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 20px 20px 20px;
+            column-gap: 150px;
+            margin-top: 50px;
+
+        }
+
+        #secao1 {
+            background-color: aqua;
+        }
+
+        #secao2 {
+            background-color: rgb(51, 255, 0);
+        }
+
+        #secao3 {
+            background-color: rgb(255, 68, 0);
+        }
+
+
+        #secao1,
+        #secao2,
+        #secao3 {
+            width: 8vw;
+            height: 8vh;
+        }
+
+
+        @media only screen and (max-width: 992px) {
+            .container {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            #secao1,
+            #secao2,
+            #secao3 {
+                width: 6vw;
+                height: 6vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Layout responsivo</h1>
+
+    <div class="container">
+        <div id="secao1"></div>
+        <div id="secao2"></div>
+        <div id="secao3"></div>
+    </div>
+
+</body>
+
+</html>

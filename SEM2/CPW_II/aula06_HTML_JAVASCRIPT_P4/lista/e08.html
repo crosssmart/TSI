@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Encontrar Números</title>
+</head>
+
+<body>
+
+    <h2>Identificar números na frase</h2>
+
+    <label>Digite um texto:</label><br>
+    <input type="text" id="texto" size="50"><br><br>
+
+    <button onclick="buscarNumeros()">Buscar números</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function buscarNumeros() {
+            let texto = document.getElementById("texto").value;
+
+            // Expressão regular para encontrar números
+            let numeros = texto.match(/\d+/g);
+
+            if (numeros) {
+                document.getElementById("resultado").innerText =
+                    "Números encontrados: " + numeros.join(", ");
+            } else {
+                document.getElementById("resultado").innerText =
+                    "Nenhum número encontrado.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

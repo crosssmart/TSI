@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXE05</title>
+
+    <style>
+        * {
+            text-align: center;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Comparador</h1>
+
+    <form id="forms">
+        <label for="number">Digite um número para comparar com aleatório</label><br>
+        <input type="number" name="numero" id="numero" required>
+
+        <br><br>
+
+        <button type="submit">Comparar</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        let result = document.getElementById("resultado")
+
+        document.getElementById('forms').addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let numTry = Number(document.getElementById("numero").value);
+
+            let numComp = Math.floor(Math.random() * 10) + 1;
+
+            if (numTry === numComp) {
+                result.innerText = `O número ${numTry} é igual ao número random (${numComp})`;
+            } else {
+                result.innerText = `O número ${numTry} NÃO é igual ao número random (${numComp})`;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

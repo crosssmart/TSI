@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste04</title>
+</head>
+
+<body>
+
+    <button onclick="doSomething()">Aperte</button>
+
+    <script>
+        function doSomething() {
+            const produto1 = { nome: "Conceito1", preco: "999" };
+            const produto2 = { nome: "Conceito2", preco: "99999" };
+            let text = "";
+            for (const x in produto1, produto2) {
+                text += `${x}: ${produto1[x]} -- ${x}: ${produto2[x]}\n`;
+            }
+            alert(text);
+        }
+
+    </script>
+</body>
+
+</html>

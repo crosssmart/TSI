@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02</title>
+
+    <style>
+        * {
+            text-align: center;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sorteador Online</h1>
+
+    <form id="forms">
+        <br>
+        <label for="number">Digite um número para tentar a sorte</label><br>
+        <input type="number" name="numero" id="numero" required>
+
+        <br><br>
+
+        <button type="submit">Sortear</button>
+    </form>
+
+    <p id="resultado"></p>
+    <p id="acerto"></p>
+
+    <script>
+        let result = document.getElementById("resultado")
+        let acerto = document.getElementById("acerto")
+
+        document.getElementById('forms').addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let numTry = Number(document.getElementById("numero").value);
+
+            let numSorteados = [];
+
+            for (let i = 0; numSorteados.length < 6; i++) {
+                let repete = false
+
+                let n = Math.floor(Math.random() * 60) + 1;
+
+                for (let j = 0; j < numSorteados.length; j++) {
+                    if (n === numSorteados[j]) {
+                        repete = true
+                        break;
+                    }
+                }
+
+                if (!repete) {
+                    numSorteados.push(n);
+                }
+            }
+
+            result.innerText = `Os números sorteados foram:
+            ${numSorteados}.`;
+
+
+            for (let j = 0; j < numSorteados.length; j++) {
+                if (numTry === numSorteados[j]) {
+                    acerto.innerText = "Você acertou!";
+                    break
+                } else {
+                    acerto.innerText = `Errou!`;
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste01</title>
+</head>
+
+<body>
+
+    <button onclick="doSomething()">Aperte</button>
+
+    <script>
+        function doSomething() {
+            const person = { Primeiro_Nome: "Bras", Ultimo_Nome: "Cubas", Idade: 58 };
+            let text = "";
+            for (let x in person) {
+                text += `${x}: ${person[x]}\n`;
+            }
+            alert(text);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXE08</title>
+
+    <style>
+        * {
+            text-align: center;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>É positivo ou negativo?</h1>
+
+    <form id="forms">
+
+        <label for="num">Insira um número</label><br>
+        <input type="number" name="num" id="num" required>
+
+        <br><br>
+
+        <button type="submit" onclick="conf()">Conferir</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        let result = document.getElementById("resultado")
+
+        document.getElementById('forms').addEventListener("submit", function (event) {
+            event.preventDefault();
+        })
+
+        function conf() {
+            let numero = Number(document.getElementById("num").value);
+
+            result.innerHTML = (numero >= 0) ? `É positivo!` : `É negativo`;
+        }
+    </script>
+</body>
+
+</html>

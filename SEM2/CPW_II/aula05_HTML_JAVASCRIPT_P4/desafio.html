@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio...</title>
+
+    <style>
+        * {
+            text-align: center;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        input {
+            border: 2px solid blue;
+            border-radius: 3px;
+            width: 70px;
+            padding: 10px 10px;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        button {
+            padding: 25px 35px;
+            font-size: 20px;
+            background-color: black;
+            color: white;
+            border: 2px solid rgb(70, 70, 83);
+            border-radius: 10px;
+
+            transition: 0.5s;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: rgb(114, 114, 114);
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+        }
+
+        .items {
+            margin-inline: 20px;
+        }
+
+        #resultado {
+            font-size: 15px;
+
+            transition: 0.5s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sorteadora bem conceitual</h1>
+
+    <form id="forms">
+
+        <div class="box">
+            <div class="items">
+                <label for="min">Mínimo</label><br>
+                <input type="number" name="min" id="min" required>
+            </div>
+
+            <div class="items">
+                <label for="max">Máximo</label><br>
+                <input type="number" name="max" id="max" required>
+            </div>
+        </div>
+
+        <br><br>
+
+        <label for="number">Digite um número para tentar a sorte</label>
+        <input type="number" name="numero" id="numero" required>
+
+        <br><br>
+
+        <button type="submit">Sortear</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        let result = document.getElementById("resultado")
+
+        document.getElementById('forms').addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let max = Number(document.getElementById("max").value);
+            let min = Number(document.getElementById("min").value);
+
+            let numTry = Number(document.getElementById("numero").value);
+
+            let numSort = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            if (numTry === numSort) {
+                result.innerText = "Você acertou!";
+            } else {
+                result.innerText = `Errou! O número era ${numSort}`;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

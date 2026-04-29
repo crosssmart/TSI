@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+    <div>
+        <p id="text"></p>
+    </div>
+
+    <script>
+        let text = document.getElementById("text");
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let data = new Date();
+
+            text.innerText = ` Formatos:
+            1°: ${data.toDateString()} 
+            2°: ${data.toTimeString()}
+            3°: ${data.toString()}`
+        });
+    </script>
+</body>
+
+</html>

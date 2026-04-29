@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparando</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        label {
+            margin: 10px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 20px;
+            margin: 20px;
+            background-color: black;
+            color: wheat;
+            border: solid white;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2> Digite 2 números</h2>
+    <label for="number1">Número 1</label><br>
+    <input type="number" name="number1" id="number_1"><br><br>
+
+    <label for="number1">Número 2</label><br>
+    <input type="number" name="number2" id="number_2"><br><br>
+
+    <button id="btn" onclick="comparar()">Comparar</button>
+    <script>
+
+        function comparar() {
+            let n1 = document.getElementById("number_1").value
+            let n2 = document.getElementById("number_2").value
+
+            const numero1 = {
+                igual: (n1 == 4) ? true : false,
+                igualEtipo: (n1 == '4') ? true : false,
+                dif: (n1 != 4) ? true : false
+            }
+
+            const numero2 = {
+                igual: (n2 == 8) ? true : false,
+                igualEtipo: (n2 == '8') ? true : false,
+                dif: (n2 != 8) ? true : false
+            }
+
+
+
+            if (n1 == '' || n2 == '') {
+                return alert('Dados não inseridos corretamente')
+            } else {
+                alert(`Número 1 comparado com 4 e Número 2 com 8
+            
+            ${n1} == 4 : ${numero1.igual}
+            ${n1} === 4 : ${numero1.igualEtipo}
+            ${n1} != 4 : ${numero1.dif}
+            
+            ${n2} == 4 : ${numero2.igual}
+            ${n2} === 4 : ${numero2.igualEtipo}
+            ${n2} != 4 : ${numero2.dif}`)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

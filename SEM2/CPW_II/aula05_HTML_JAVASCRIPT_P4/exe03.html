@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Número Aleatório</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 20px;
+            margin: 20px;
+            background-color: black;
+            color: wheat;
+            border: solid white;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        #preview {
+            display: none;
+            color: blue;
+            font-size: 20px;
+
+            border: 4px solid black;
+            border-radius: 10px;
+            width: max-content;
+            padding: 10px;
+            margin: 0px 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Gerar Número Aleatório</h2>
+    <button id="btn" onclick="gerar()" type="submit">Gerar</button>
+    <div id="preview"></div>
+    <script>
+
+        let preview = document.getElementById("preview")
+
+        function gerar() {
+            let n1 = Math.floor(Math.random() * 256)
+
+            preview.innerText = n1
+            preview.style.display = 'block'
+        }
+
+    </script>
+</body>
+
+</html>

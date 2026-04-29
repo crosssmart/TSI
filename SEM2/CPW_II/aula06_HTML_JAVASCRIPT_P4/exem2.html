@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 02</title>
+</head>
+
+<body>
+    <h2>Meus números da Sorte</h2>
+
+    <p id="resultado"></p>
+
+    <script>
+        const numeros = [45, 4, 9, 16, 25];
+
+        let textoFinal = "";
+
+        function adicionarTexto(valor) {
+            textoFinal += valor + " - ";
+        }
+
+        numeros.forEach(adicionarTexto);
+        document.getElementById("resultado").innerHTML = textoFinal;
+    </script>
+</body>
+
+</html>

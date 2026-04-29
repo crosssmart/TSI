@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 07 - Layout Responsivo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        #imagem {
+            display: none;
+        }
+
+        #btn {
+            display: none;
+            background-color: #3498db;
+            margin-block: 20px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #btn:hover {
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 992px) {
+            #btn {
+                display: block;
+            }
+
+            #imagem {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Layout responsivo</h1>
+
+    <img id="imagem"
+        src="https://www.imigrantesbebidas.com.br/bebida/images/products/full/2893-agua-mineral-crystal-sem-gas-500ml.jpg"
+        alt="garrafa de água" width="100" height="200px">
+    <button id="btn">Aperte</button>
+
+</body>
+
+</html>

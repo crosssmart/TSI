@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Palavra</title>
+</head>
+
+<body>
+
+    <h2>Buscar palavra na frase</h2>
+
+    <label>Digite uma frase:</label><br>
+    <input type="text" id="frase" size="50"><br><br>
+
+    <label>Digite a palavra que deseja buscar:</label><br>
+    <input type="text" id="palavra"><br><br>
+
+    <button onclick="buscarPalavra()">Buscar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function buscarPalavra() {
+            let frase = document.getElementById("frase").value;
+            let palavra = document.getElementById("palavra").value;
+
+            let posicao = frase.search(palavra);
+
+            if (posicao !== -1) {
+                document.getElementById("resultado").innerText =
+                    "A palavra foi encontrada na posição: " + posicao;
+            } else {
+                document.getElementById("resultado").innerText =
+                    "Palavra não encontrada na frase.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

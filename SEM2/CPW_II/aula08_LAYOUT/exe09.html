@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 09 - Layout Responsivo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: blueviolet;
+
+            transition: 1s;
+        }
+
+        .container p {
+            font-size: 25px;
+            color: white;
+
+            transition: 1s;
+        }
+
+        @media only screen and (max-width: 992px) {
+            .container {
+                background-color: #f5f5f5;
+            }
+
+            .container p {
+                font-size: 35px;
+                color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Layout responsivo</h1>
+
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia illum quasi cumque vel voluptas laudantium?
+            Nobis ipsum eos vero harum!</p>
+    </div>
+
+</body>
+
+</html>

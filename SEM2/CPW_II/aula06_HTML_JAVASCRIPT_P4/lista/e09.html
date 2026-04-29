@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Substituir Números</title>
+</head>
+
+<body>
+
+    <h2>Substituir números na frase</h2>
+
+    <label>Digite uma frase com números:</label><br>
+    <input type="text" id="frase" size="50"><br><br>
+
+    <button onclick="substituirNumeros()">Substituir</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function substituirNumeros() {
+            let frase = document.getElementById("frase").value;
+
+            // Substitui todos os números por "*"
+            let novaFrase = frase.replace(/\d+/g, "*");
+
+            document.getElementById("resultado").innerText =
+                "Resultado: " + novaFrase;
+        }
+    </script>
+
+</body>
+
+</html>

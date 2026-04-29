@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXE06</title>
+
+    <style>
+        * {
+            text-align: center;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>É Adulto?</h1>
+
+    <form id="forms">
+
+        <label for="p1">Primeira Pessoa (idade)</label><br>
+        <input type="number" name="p1" id="p1" required>
+
+        <br><br>
+
+        <label for="p2">Segunda Pessoa (idade)</label><br>
+        <input type="number" name="p2" id="p2" required>
+
+        <br><br>
+
+        <button type="submit" onclick="serAdulto()">Conferir se são ADULTOS</button>
+        <br><br>
+        <button type="submit" onclick="iguais()">Conferir se são IGUAIS</button>
+        <br><br>
+        <button type="submit" onclick="ambos()">Conferir AMBOS</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        let result = document.getElementById("resultado")
+
+        document.getElementById('forms').addEventListener("submit", function (event) {
+            event.preventDefault();
+        })
+
+        function serAdulto() {
+            let idade1 = Number(document.getElementById("p1").value);
+            let idade2 = Number(document.getElementById("p2").value);
+
+            if (idade1 === 0 || idade2 === 0) {
+                return result.innerHTML = `Erro nos dados`
+            }
+
+            if (idade1 >= 18) {
+                result.innerHTML = `A primeira pessoa é adulta<br>`
+            } else {
+                result.innerHTML = `A primeira pessoa NÃO é adulta<br>`
+            }
+
+            if (idade2 >= 18) {
+                result.innerHTML += `A segunda pessoa é adulta<br>`
+            } else {
+                result.innerHTML += `A segunda pessoa NÃO é adulta<br>`
+            }
+
+        }
+
+        function iguais() {
+            let idade1 = Number(document.getElementById("p1").value);
+            let idade2 = Number(document.getElementById("p2").value);
+
+            if (idade1 === 0 || idade2 === 0) {
+                return result.innerHTML = `Erro nos dados`
+            }
+
+            if (idade1 === idade2) {
+                result.innerHTML = `As idades são iguais`
+            } else {
+                result.innerHTML = `As idades NÃO são iguais`
+            }
+        }
+
+        function ambos() {
+            let idade1 = Number(document.getElementById("p1").value);
+            let idade2 = Number(document.getElementById("p2").value);
+
+            if (idade1 === 0 || idade2 === 0) {
+                return result.innerHTML = `Erro nos dados`
+            }
+
+            if (idade1 >= 18 && idade2 >= 18) {
+                result.innerHTML = `Ambos são Adultos`
+            } else {
+                result.innerHTML = `Ambos NÃO são Adultos`
+            }
+
+        }
+    </script>
+</body>
+
+</html>

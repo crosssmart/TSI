@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01</title>
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculos usando Data</h1>
+    <input type="date" name="data" id="data">
+    <br><br>
+    <button onclick="calcular()">Calcular</button>
+
+    <br><br>
+    <div id="resultado"></div>
+
+    <script>
+        const dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira",
+            "Sexta-feira", "Sábado", "Domingo"];
+
+        let result = document.getElementById("resultado")
+
+        function calcular() {
+            const data = new Date(document.getElementById("data").value);
+            const hoje = new Date();
+
+            let newData = new Date(hoje.getFullYear(), data.getMonth(), data.getDate())
+
+            if (newData < hoje) {
+                newData.setFullYear(hoje.getFullYear() + 1);
+            }
+
+            const newDay = newData.getDay();
+
+            result.innerHTML = `O Usuário nasceu na(o) ${dias[data.getDay()]} <br>`
+            result.innerHTML += `E o próximo aniversário (${newData.getFullYear()}) será na(o) ${dias[newDay]}`
+        }
+    </script>
+</body>
+
+</html>

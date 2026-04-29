@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratando</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        label {
+            margin: 10px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 20px;
+            margin: 20px;
+            background-color: black;
+            color: wheat;
+            border: solid white;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Digite um número real</h2>
+    <label for="number1">Número Real</label><br>
+    <input type="number" name="number1" id="number_1">
+
+    <br><br>
+    <button id="btn" onclick="tratar()" type="submit">Tratar</button>
+    <script>
+
+        function tratar() {
+
+            let n1Tr = Math.trunc(document.getElementById("number_1").value)
+            let n1 = (Math.sqrt(n1Tr) >= 0 ? Math.sqrt(n1Tr) : "Não foi possível extrair a raíz quadrada")
+
+            if (n1 == '') {
+                return alert('Dados não inseridos corretamente')
+            } else {
+                alert(`Número tratado, utilizando Math.trunc e .sqrt
+
+            Truncado: ${n1Tr}
+            Raíz Quadrada: ${n1}`)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

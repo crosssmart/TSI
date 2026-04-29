@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Validação de Dados</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        #preview {
+            margin-top: 10px;
+            color: rgb(255, 0, 93);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Cadastro</h2>
+
+    <label>Nome:</label>
+    <input type="text" id="nome">
+
+    <label>Sobrenome:</label>
+    <input type="text" id="sobrenome">
+
+    <label>Data de Nascimento (DD/MM/AAAA):</label>
+    <input type="date" id="data">
+
+    <button id="btn">Enviar</button>
+
+    <div id="preview"></div>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const preview = document.getElementById("preview");
+
+        function validarDados() {
+            let nome = document.getElementById("nome").value.trim().toUpperCase();
+            let sobrenome = document.getElementById("sobrenome").value.trim().toUpperCase();
+            let data = document.getElementById("data").value.trim();
+
+            if (nome == "" || sobrenome == "" || data == "") {
+                let erro = "Valores não identificados corretamente!"
+                return { erro }
+            }
+
+            return { nome, sobrenome, data };
+        }
+
+        function mascarar(texto) {
+            if (texto.length <= 2) return texto;
+            return texto.substring(0, 2) + "*".repeat(texto.length - 2);
+        }
+
+        // Evento ao passar o mouse
+        btn.addEventListener("mouseover", () => {
+            let dados = validarDados();
+
+            if (dados.erro) {
+                preview.innerText = dados.erro;
+            } else {
+                preview.innerText = `Pré-visualização:
+
+                Nome: ${dados.nome}
+                Sobrenome: ${dados.sobrenome}
+                Data: ${dados.data}`;
+            }
+
+            // Depois de 2 segundos, limpa o preview
+            setTimeout(() => {
+                preview.innerText = "";
+            }, 2000);
+        });
+
+        // Evento de clique
+        btn.addEventListener("click", () => {
+            let dados = validarDados();
+
+            if (dados.erro) {
+                alert(dados.erro);
+                return;
+            }
+
+            let nomeMask = mascarar(dados.nome);
+            let sobrenomeMask = mascarar(dados.sobrenome);
+
+            let dataEnvio = new Date();
+
+            alert(`Dados enviados com sucesso!
+
+            Nome: ${nomeMask}
+            Sobrenome: ${sobrenomeMask}
+            Data de nascimento: ${dados.data}
+            
+            Data de Envio: ${dataEnvio.toLocaleDateString("pt-br")}`);
+        });
+    </script>
+
+</body>
+
+</html>

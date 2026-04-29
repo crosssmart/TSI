@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+    <h1 id="Desafio">Lorem, ipsum.</h1>
+
+    <!--Tamanho-->
+    <input type="range" id="tamanho" min="10" max="100" value="50" oninput="alterarEstilos()">
+    <br>
+
+    <!--Cor-->
+    <input type="color" id="cor" oninput="alterarEstilos()">
+    <br>
+
+    <label><input type="radio" id="fonteArial" name="fonte" value="Arial" onchange="alterarEstilos()"> Arial</label>
+    <label><input type="radio" id="fonteVerdana" name="fonte" value="Verdana" onchange="alterarEstilos()">
+        Verdana</label>
+    <label><input type="radio" id="fonteCourierNew" name="fonte" value="Courier New" onchange="alterarEstilos()">
+        Courier New</label>
+    <br>
+
+    <script>
+        function alterarEstilos() {
+            const tamanho = document.getElementById("tamanho").value;
+            const cor = document.getElementById("cor").value;
+
+            // Verificar qual botão de rádio está selecionado usando getElementById
+            let fonte;
+            if (document.getElementById("fonteArial").checked) {
+                fonte = "Arial";
+            } else if (document.getElementById("fonteVerdana").checked) {
+                fonte = "Verdana";
+            } else if (document.getElementById("fonteCourierNew").checked) {
+                fonte = "Courier New";
+            } else {
+                fonte = "Arial"; // Fonte padrão caso nenhum botão esteja selecionado
+            }
+
+            const elemento = document.getElementById("Desafio");
+            elemento.style.fontSize = tamanho + "px";
+            elemento.style.color = cor;
+            elemento.style.fontFamily = fonte;
+        }
+    </script>
+</body>
+
+</html>
