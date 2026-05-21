@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pessoal do Usuário</title>
+    <style>
+        * {
+            margin: auto;
+        }
+
+        h1 {
+            margin-block: 20px;
+        }
+
+        section {
+            padding: 20px;
+            border: solid 3px black;
+            border-radius: 20px;
+            width: 600px;
+            height: 600px;
+            margin: 20px;
+        }
+
+        .container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        input,
+        select {
+            width: 250px;
+            border: 2px rgb(163, 163, 29) solid;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        label {
+            font-size: 17px;
+            font-weight: 300;
+        }
+
+        button {
+            margin: auto;
+            width: 100px;
+            padding: 15px;
+            border: 2px rgb(163, 163, 29) solid;
+            border-radius: 5px;
+            background-color: rgb(199, 124, 33);
+            color: wheat;
+            font-size: 17px;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        #apresentacao {
+            font-size: 20px;
+            font-family: Impact;
+
+            transition: 1s;
+
+            text-align: justify;
+        }
+
+        #log {
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        #sep_div {
+            margin-top: 7px;
+            border-top: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 20px;
+        }
+
+        #result {
+            justify-self: center;
+            margin: auto;
+            font-size: 45px;
+            font-family: Calibri;
+        }
+
+        #resultP {
+            justify-self: center;
+            margin: auto;
+            font-size: 15px;
+            font-family: Calibri;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Formulário -->
+    <div class="container">
+        <section>
+            <h1>Formulário de Identificação:</h1>
+
+            <form id="formulario">
+                <label for="name">Nome completo</label><br>
+                <input type="text" id="name">
+                <br><br>
+
+                <label for="text">E-mail</label><br>
+                <input type="text" id="email" placeholder="Necessita @ e .com">
+                <br><br>
+
+                <label for="telefone">Telefone</label><br>
+                <input type="tel" id="telefone" placeholder="67123456789">
+                <br><br>
+
+                <label for="nascimento">Data de nascimento</label><br>
+                <input type="date" id="nascimento">
+                <br><br>
+
+                <label for="cidade">Cidade</label><br>
+                <input type="text" id="cidade">
+                <br><br>
+
+                <label for="estado">Estado</label><br>
+                <input type="text" id="estado">
+                <br><br>
+
+                <label for="prof">Profissão</label><br>
+                <input type="text" id="prof">
+
+                <br><br>
+                <button id="btn" type="submit">Exibir</button>
+            </form>
+            <p id="log"></p>
+        </section>
+
+        <!-- Perfil mostrar dados -->
+        <section id="perfil">
+            <h1>Texto gerado para apresentação com dados:</h1>
+            <p id="apresentacao"></p>
+            <div id="sep_div">
+                <div>
+                    <label for="cor">Cor</label><br>
+                    <input type="color" id="cor" name="cor" oninput="mudarTexto()">
+                </div>
+
+                <div>
+                    <label for="cor">Tamanho do texto</label><br>
+                    <input type="range" min="10" max="23" value="20" id="tamanho" name="tamanho" oninput="mudarTexto()">
+                </div>
+
+                <div>
+                    <label for="cor">Tipo da fonte</label><br>
+                    <select name="tipo" id="tipo" onchange="mudarTexto()">
+                        <option value="Courier" name="tipo">Courier</option>
+                        <option value="Verdana" name="tipo">Verdana</option>
+                        <option value="Calibri" name="tipo">Calibri</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="palavra">Procurar Palavra</label><br>
+                    <input type="text" name="palavra" id="palavra"><br>
+                    <br>
+                    <button onclick="procurar()">Procurar</button><br>
+                    <p id="resultP"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Número da Sorte -->
+        <section>
+            <h1>Gerar número da Sorte:</h1>
+
+            <button onclick="gerar()">Gerar</button>
+
+            <p id="result"></p>
+        </section>
+    </div>
+
+    <script>
+        let apresentacao = document.getElementById("apresentacao");
+        let areaExibir = document.getElementById("log");
+
+        document.getElementById("formulario").addEventListener('submit', () => {
+            event.preventDefault();
+
+            let nome = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let telefone = document.getElementById('telefone').value;
+            let nascimento = document.getElementById('nascimento').value;
+            let cidade = document.getElementById('cidade').value;
+            let estado = document.getElementById('estado').value;
+            let prof = document.getElementById('prof').value;
+
+            let dados = [nome, email, telefone, nascimento, cidade, estado, prof]
+
+            //Verificar dados se são vazios
+            dados.forEach(item => {
+                if (item === "") {
+                    return areaExibir.innerHTML = `[Erro]: Algum dado invalido!`
+                }
+            });
+
+            //Verificar Email
+            let verify1 = email.search("@")
+            let verify2 = email.search([".com"])
+
+            if (verify1 === -1 || verify2 === -1) {
+                return areaExibir.innerHTML = `[Erro]: E-mail invalido!`
+            }
+
+            //Verificar Telefone
+            let verify3 = telefone.search(/[a-z]/g)
+            if (verify3 !== -1) {
+                return areaExibir.innerHTML = `[Erro]: Número invalido!`
+            }
+            if (telefone.length < 11 || telefone.length > 11) {
+                return areaExibir.innerHTML = `[Erro]: Número invalido!`
+            }
+
+            //Verificar Data......
+            data = new Date(nascimento)
+            dataHoje = new Date()
+
+            if (data > dataHoje) {
+                return areaExibir.innerHTML = `[Erro]: Data de Nascimento invalida!`
+            }
+
+            //Apresentação
+            areaExibir.innerHTML = ``
+
+            let idade = data.getFullYear() - dataHoje.getFullYear()
+            apresentacao.innerHTML = `
+            Sou ${nome}, nascido em ${data.getDate()}/${data.getMonth()}/${data.getFullYear()},<br>  
+            sou de ${cidade} / ${estado}, atuo como ${prof},<br>
+            meus contatos são:<br>
+            E-mail: ${email} <br>
+            Telefone: ${telefone}<br>
+
+            \n<strong>Curiosidade</strong>:
+            Tenho, ${idade} anos e <br>
+            minha idade ao quadrado é ${Math.pow(idade, 2)}
+            `
+        })
+
+        //muda o texto
+        function mudarTexto() {
+            let cor = document.getElementById('cor').value;
+            let tamanho = document.getElementById('tamanho').value;
+            let tipo = document.getElementById('tipo').value;
+
+            apresentacao.style.color = cor
+            apresentacao.style.fontSize = tamanho + "px"
+            apresentacao.style.fontFamily = tipo
+        }
+
+        //procurar plavra
+        function procurar() {
+            let palavra = document.getElementById('palavra').value;
+            if (palavra === "") {
+                return
+            }
+            let result = document.getElementById('resultP');
+            let verifyP = apresentacao.textContent.search(palavra);
+
+            if (verifyP !== -1) {
+                result.innerText = `Achou a palavra ${palavra}!\n O tamanho dela é ${palavra.length}`
+            } else {
+                result.innerHTML = `Não achou a palavra ${palavra}!`
+            }
+        }
+
+        //Gerar número
+        function gerar() {
+            let num = Math.floor(Math.random() * 100) + 1
+            let result = document.getElementById('result')
+
+            result.innerText = `${num}`
+        }
+
+        //Code by Rogerio Filho
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="container"></div>
+
+  <script>
+    const ip = document.createElement('input');
+    const btn = document.createElement('button');
+    btn.textContent = 'Adicionar';
+    ip.setAttribute('type', 'text');
+
+    const div = document.getElementById('container');
+
+    div.append(ip, btn);
+
+  </script>
+</body>
+
+</html>

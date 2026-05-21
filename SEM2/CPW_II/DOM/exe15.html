@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btnAcao" class="botao primario">Ação</button>
+  <script>
+    const btn = document.getElementById('btnAcao');
+    btn.classList.add('ativo');
+    btn.classList.remove('primeiro');
+    if (btn.classList.contains('botao')) {
+      btn.textContent = 'Operação bem-sucedida!';
+    }
+  </script>
+</body>
+
+</html>

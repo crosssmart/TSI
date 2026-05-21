@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="listaCompras">
+    <li>Maçã</li>
+  </ul>
+  <script>
+    const lista = document.getElementById('listaCompras');
+    const novoItem = document.createElement('li');
+    novoItem.textContent = 'Banana';
+    lista.appendChild(novoItem);
+  </script>
+</body>
+
+</html>
