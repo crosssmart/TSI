@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogadores</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    section {
+      background-color: aquamarine;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 10px;
+      border: solid 1px black;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: solid 1px #999;
+    }
+
+    button {
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    #areaMostrar {
+      margin-top: 15px;
+      font-weight: bold;
+      color: red;
+    }
+
+    #dadosArea {
+      margin-top: 20px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    @media(max-width: 500px) {
+      section {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // CARREGAR HTML VIA JAVASCRIPT
+    document.body.innerHTML = `
+    
+    <section>
+
+      <h1>Formulário para cadastrar jogadores</h1>
+
+      <form id="formulario" novalidate>
+
+        <label for="name">Nome completo</label>
+        <input type="text" id="name">
+
+        <label for="posCampo">Posição em campo</label>
+        <select id="posCampo">
+          <option value="">Selecione</option>
+          <option value="Goleiro">Goleiro</option>
+          <option value="Atacante">Atacante</option>
+          <option value="Lateral Esquerdo">Lateral Esquerdo</option>
+          <option value="Lateral Direito">Lateral Direito</option>
+        </select>
+
+        <label for="data">Data de nascimento</label>
+        <input type="date" id="data">
+
+        <label for="numCamisa">Número da camisa</label>
+        <input type="number" id="numCamisa">
+
+        <button type="submit">Cadastrar</button>
+
+      </form>
+
+      <div id="areaMostrar"></div>
+
+      <div id="dadosArea"></div>
+
+    </section>
+    `;
+
+    // FUNÇÃO DO FORMULÁRIO
+    document.getElementById("formulario")
+      .addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        let areaMostrar = document.getElementById("areaMostrar");
+        let dadosArea = document.getElementById("dadosArea");
+
+        areaMostrar.innerHTML = "";
+        dadosArea.innerHTML = "";
+
+        // PEGAR DADOS
+        let nome = document.getElementById("name").value.trim();
+        let posCampo = document.getElementById("posCampo").value;
+        let nasc = document.getElementById("data").value;
+        let numCamisa = document.getElementById("numCamisa").value;
+
+        let dados = [nome, posCampo, nasc, numCamisa];
+
+        // VALIDAR CAMPOS VAZIOS
+        for (let item of dados) {
+          if (item === "") {
+            areaMostrar.innerHTML =
+              "<p>[ERRO]: Preencha todos os campos!</p>";
+            return;
+          }
+        }
+
+        // VALIDAR NOME
+        let regex = /^[A-Za-zÀ-ÿ\s]+$/;
+
+        if (!regex.test(nome)) {
+          areaMostrar.innerHTML =
+            "<p>[ERRO]: O nome deve conter apenas letras!</p>";
+          return;
+        }
+
+        // PADRONIZAR NOME
+        nome = nome
+          .toLowerCase()
+          .split(" ")
+          .map(palavra =>
+            palavra.charAt(0).toUpperCase() + palavra.slice(1)
+          )
+          .join(" ");
+
+        // LIMITAR EM 10 CARACTERES
+        nome = nome.slice(0, 10);
+
+        // VALIDAR NÚMERO DA CAMISA
+        if (numCamisa > 20) {
+          areaMostrar.innerHTML =
+            "<p>[ERRO]: Número da camisa apenas até 20!</p>";
+          return;
+        }
+
+        // CALCULAR IDADE
+        let data = new Date(nasc);
+        let hj = new Date();
+        let anos = hj.getFullYear() - data.getFullYear();
+        let mes = hj.getMonth() - data.getMonth();
+        if (
+          mes < 0 ||
+          (mes === 0 && hj.getDate() < data.getDate())
+        ) {
+          anos--;
+        }
+
+        // VALIDAR IDADE
+        if (anos <= 16) {
+          areaMostrar.innerHTML =
+            "<p>[ERRO]: Precisa ser maior de 16 anos!</p>";
+          return;
+        }
+
+        // MOSTRAR DADOS
+        dadosArea.innerHTML = `
+        
+        <h3>Dados Inseridos:</h3>
+
+          <p><strong>Nome:</strong> ${nome}</p>
+
+          <p><strong>Posição:</strong> ${posCampo}</p>
+
+          <p><strong>Idade:</strong> ${anos} anos</p>
+
+          <p><strong>Número da camisa:</strong> ${numCamisa}</p>
+        `;
+      });
+
+  </script>
+
+</body>
+
+</html>
