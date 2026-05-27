@@ -12,7 +12,9 @@ const porta = 8888;
 const mongoose = require('mongoose');
 require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 
-mongoose.connect('mongodb+srv://RogerioFilho:rogerio.filho@cluster0.tur3mnb.mongodb.net/?appName=Cluster0');
+require('dotenv').config();
+const URL_DB = process.env.URL_BD || '';
+mongoose.connect(URL_DB);
 
 mongoose.connection.on('connected', () => {
   console.log('API conectada ao BD!');
