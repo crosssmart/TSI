@@ -3,6 +3,8 @@ const api = express();
 api.use(express.json()); // Para poder usar o req.body
 const porta = 3000;
 const mongoose = require('mongoose');
+//Corrigir erro do MongoDB Atlas com o node que as vezes pode dar:
+require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 
 // Configurando o dotenv para ler as variáveis de ambiente do arquivo .env
 require('dotenv').config();

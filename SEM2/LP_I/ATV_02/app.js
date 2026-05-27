@@ -10,8 +10,9 @@ api.use(express.json());
 const porta = 8888;
 
 const mongoose = require('mongoose');
+require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 
-mongoose.connect('mongodb+srv://RogerioFilho:vmpb2016@cluster0.tur3mnb.mongodb.net/?appName=Cluster0');
+mongoose.connect('mongodb+srv://RogerioFilho:rogerio.filho@cluster0.tur3mnb.mongodb.net/?appName=Cluster0');
 
 mongoose.connection.on('connected', () => {
   console.log('API conectada ao BD!');
