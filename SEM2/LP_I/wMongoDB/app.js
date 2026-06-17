@@ -24,17 +24,21 @@ mongoose.connection.on('error', (erro) => {
 
 const produtosController = require('./controller/produto.js');
 const usuarioController = require('./controller/usuario.js');
+const auth = require('./middlewares/auth.js');
 
 api.post('/usuario', usuarioController.registrarUsuario);
+api.post('/logar', auth.logar);
+
 
 //Mostrar
-api.get('/produtos', produtosController.listarProdutos);
+api.get('/produtos', auth.autenticar, produtosController.listarProdutos);
 //Adicionar
-api.post('/produto', produtosController.adicionarProduto);
-//Remover
-api.delete('/produto', produtosController.removerProduto);
+api.post('/produto', auth.autenticar, produtosController.adicionarProduto);
 //Editar
-api.put('/produto', produtosController.editarProduto);
+api.put('/produto', auth.autenticar, produtosController.editarProduto);
+//Remover
+api.delete('/produto', auth.autenticar, produtosController.removerProduto);
+
 
 
 api.listen(porta, () => {

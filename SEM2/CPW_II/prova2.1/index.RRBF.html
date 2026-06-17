@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogadores</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    section {
+      background-color: aquamarine;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 10px;
+      border: solid 1px black;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: solid 1px #999;
+    }
+
+    button {
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    #areaMostrar {
+      margin-top: 15px;
+      font-weight: bold;
+      color: red;
+    }
+
+    #dadosArea {
+      margin-top: 20px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    @media(max-width: 500px) {
+      section {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // carregar html
+    document.body.innerHTML = `
+    <section>
+    <h1>Cadastro de Consultas no Petshop</h1>
+
+    <form id="formulario" novalidate>
+
+      <label for="name">Nome do Tutor</label>
+      <input type="text" id="name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email">
+
+      <label for="tel">Telefone</label>
+      <input type="tel" id="tel" placeholder="67999999999">
+
+      <label for="namePet">Nome do Pet</label>
+      <input type="text" id="namePet">
+
+      <label for="tipoAnimal">Tipo de Animal</label>
+      <select id="tipoAnimal">
+        <option value="">Selecione</option>
+        <option value="Cachorro">Cachorro</option>
+        <option value="Gato">Gato</option>
+        <option value="Hamster">Hamster</option>
+      </select>
+
+      <label for="dataConsul">Data da Consulta</label>
+      <input type="date" id="dataConsul">
+
+      <label for="horaConsul">Horários disponíveis da Consulta</label>
+      <select id="horaConsul">
+        <option value="">Selecione</option>
+        <option value="8">8h</option>
+        <option value="10">10h</option>
+        <option value="12">12h</option>
+        <option value="14">14h</option>
+        <option value="16">16h</option>
+        <option value="18">18h</option>
+      </select>
+
+      <button type="submit">Cadastrar Consulta</button>
+
+    </form>
+
+    <div id="areaMostrar"></div>
+
+    <div id="dadosArea"></div>
+
+  </section>
+    `;
+
+    //Formulário
+    document.getElementById("formulario").addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+      let areaMostrar = document.getElementById("areaMostrar");
+      let dadosArea = document.getElementById("dadosArea");
+
+      areaMostrar.innerHTML = "";
+      dadosArea.innerHTML = "";
+
+      // dados
+      let nome = document.getElementById("name").value.trim();
+      let nomePet = document.getElementById("namePet").value.trim();
+      let email = document.getElementById("email").value;
+      let tel = document.getElementById("tel").value;
+      let tipoAnimal = document.getElementById("tipoAnimal").value;
+      let dataConsul = document.getElementById("dataConsul").value;
+      let horaConsul = document.getElementById("horaConsul").value;
+
+      let dados = [nome, nomePet, email, tel, tipoAnimal, dataConsul, horaConsul];
+
+      // validar campo se está vazio
+      for (let item of dados) {
+        if (item === "") {
+          areaMostrar.innerHTML =
+            "<p>[ERRO]: Preencha todos os campos!</p>";
+          return;
+        }
+      }
+
+      //validar email
+      let regexEmail = /^[a-zA-Z.]+@[a-z]+\.[a-z]+$/;
+      if (!regexEmail.test(email)) {
+        areaMostrar.innerHTML =
+          "<p>[ERRO]:Email inválido!</p>";
+        return;
+      }
+
+      // alidar telefone 
+      let regexTel = /^[0-9]{11}$/;
+      if (!regexTel.test(tel)) {
+        areaMostrar.innerHTML =
+          "<p>[ERRO]:Telefone inválido!</p>";
+        return;
+      }
+
+      // validar nome do pet e tutor
+      let regex = /^[A-Za-zÀ-ÿ\s]+$/;
+
+      if (!regex.test(nomePet)) {
+        areaMostrar.innerHTML =
+          "<p>[ERRO]: O nome deve conter apenas letras!</p>";
+        return;
+      }
+
+      if (!regex.test(nome)) {
+        areaMostrar.innerHTML =
+          "<p>[ERRO]: O nome deve conter apenas letras!</p>";
+        return;
+      }
+
+      nomePet = nomePet
+        .toLowerCase()
+        .split(" ")
+        .map(palavra =>
+          palavra.charAt(0).toUpperCase() + palavra.slice(1)
+        )
+        .join(" ");
+
+
+      // validar data
+      let data = new Date(dataConsul);
+      let hj = new Date();
+
+      if (data < hj) {
+        areaMostrar.innerHTML =
+          "<p>[ERRO]: A data não deve ser anterior à hoje!</p>";
+        return;
+      }
+
+      let imgTipo
+
+      if (tipoAnimal === "Cachorro") {
+        imgTipo = 'husky_01.webp';
+      } else if (tipoAnimal === "Gato") {
+        imgTipo = 'gato.avif';
+      } else if (tipoAnimal === "Hamster") {
+        imgTipo = 'hams.jpg';
+      }
+
+      // mostrar dados
+      dadosArea.innerHTML = `
+        <h3>Consulta cadastrada!</h3><br>
+
+          <p><strong>Tutor:</strong> ${nome}</p>
+          <p>- <i>tel:</i> ${tel}</p>
+          <p>- <i>email:</i> ${email}</p>
+
+          <p><strong>Pet:</strong> ${nomePet}</p>
+
+          <p><strong>Tipo de animal:</strong> ${tipoAnimal}</p>
+          <img src=\"./img/${imgTipo}\" alt=\"imagem de ${tipoAnimal}\" width=\"75px\" height=\"75px\">
+          <p><strong>Data:</strong> ${data.toLocaleDateString('pt-BR')}</p>
+
+          <p><strong>Horário</strong> ${horaConsul}h</p>
+        `;
+    });
+  </script>
+
+</body>
+
+</html>
