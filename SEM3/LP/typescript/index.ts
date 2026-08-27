@@ -14,6 +14,6 @@ let valor: any = "Pode ser qualquer coisa";
 // ou
 let doistipos: number | string = 2
 
-function soma(num1: number, num2: number) {
+function soma(num1: number, num2: number): number {
   return num1 + num2;
 }
