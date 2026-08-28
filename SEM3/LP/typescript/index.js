@@ -4,7 +4,6 @@ conta1.imprimirExtrato();
 conta1.depositar(500);
 conta1.sacar(100);
 conta1.imprimirExtrato();
-
 import { ContaCorrente } from "./ContaCorrente";
 const conta2 = new ContaCorrente(123, "Clarice", 100);
 conta2.imprimirExtrato();
