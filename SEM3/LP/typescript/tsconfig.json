@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "outDir": "./dist", //pasta onde sai os js
+    "strict": true
+  },
+  "exclude": ["node_modules", "dist", "teste.ts"]
+}
