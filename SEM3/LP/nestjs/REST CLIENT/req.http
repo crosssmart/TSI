@@ -1,0 +1,16 @@
+### Variaveis de ambiente
+### @ = variavel
+
+@URL_API = http://localhost:3000
+
+### GET na raiz da API
+GET {{URL_API}}
+
+### POST no produto
+POST {{URL_API}}/produto
+Content-Type: application/json
+
+{
+  "nome": "José",
+  "preco": 123
+}
