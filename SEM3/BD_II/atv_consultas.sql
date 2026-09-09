@@ -102,7 +102,7 @@ LEFT JOIN alunos ON cursos.id = alunos.curso_id
 GROUP BY cursos.id, cursos.nome;
 
 --12
-SELECT cursos.nome AS curso, AVG(alunos.idade) AS idade_media
+SELECT cursos.nome AS curso, ROUND(AVG(alunos.idade), 2) AS idade_media
 FROM cursos
 INNER JOIN alunos ON cursos.id = alunos.curso_id
 GROUP BY cursos.id, cursos.nome;
