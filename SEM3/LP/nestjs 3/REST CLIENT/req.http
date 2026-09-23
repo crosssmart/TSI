@@ -1,0 +1,35 @@
+### Variaveis
+@URL_API = http://localhost:3000
+@id = 6ab3c707abac4b0897c83a24
+
+### GET na raiz da API
+GET {{URL_API}}
+
+### GET em TUDO
+GET {{URL_API}}/produto
+
+### GET em 1
+GET {{URL_API}}/produto/{{id}}
+
+### POST no produto
+POST {{URL_API}}/produto
+Content-Type: application/json
+
+{
+  "nome":"Telefone 2",
+  "preco":4200
+}
+
+### PUT no produto
+PUT {{URL_API}}/produto/{{id}}
+Content-Type: application/json
+
+{
+  "nome":"Telefone 3",
+  "preco":1200999
+}
+
+### DELETE no produto
+DELETE {{URL_API}}/produto/{{id}}
+Content-Type: application/json
+
