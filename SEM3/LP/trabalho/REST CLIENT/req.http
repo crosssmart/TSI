@@ -1,0 +1,117 @@
+### Variaveis
+@URL_API = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiQWRlcmJhbCIsImVtYWlsIjoiZW1haWxAaWYuY29tIiwiaWF0IjoxNzk1NDkzNjIxfQ.6DkLQ0Im1z9nW9E3ad71JJ8TgmtSmSiXfw8H-48JDLY
+@idUsuarioDel = 6b058a0fa09f66a8eab8b4a6
+@idUsuarioMudar = 6b058a0fa09f66a8eab8b4a6
+@idMusicaMudar = 6b05889559ac4fdb845f28f3
+
+### GET na raiz da API
+GET {{URL_API}}
+
+### ----------------------------- MUSICA --------------------------------
+
+###
+GET {{URL_API}}/musicas
+Authorization: Bearer {{token}}
+
+###
+POST {{URL_API}}/musicas
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "titulo": "Bohemian Rhapsody",
+  "artista": "Queen",
+  "album": "A Night at the Opera",
+  "duracaoSegundos": 355
+}
+
+###
+POST {{URL_API}}/musicas
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "titulo": "bad guy",
+  "artista": "Billie Eilish",
+  "album": "When We All Fall Asleep, Where Do We Go?",
+  "duracaoSegundos": 194
+}
+
+###
+PATCH  {{URL_API}}/musicas/{{idMusicaMudar}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "titulo": "bad guy",
+  "artista": "Billie Eilish - Teste diferente",
+  "album": "nome album",
+  "duracaoSegundos": 200
+}
+###
+DELETE {{URL_API}}/musicas/6b05889559ac4fdb845f28f3
+Authorization: Bearer {{token}}
+
+
+###-------------------------------- USUARIO --------------------------
+
+###
+GET {{URL_API}}/usuarios
+Authorization: Bearer {{token}}
+
+###
+POST {{URL_API}}/usuarios
+Content-Type: application/json
+
+{
+  "nome":"Aderbal",
+  "cpf": "12345678900",
+  "email":"email@if.com",
+  "senha": "123123"
+}
+
+### POST no login
+POST {{URL_API}}/usuarios/login
+Content-Type: application/json
+
+{
+  "email":"email@if.com",
+  "senha": "123123"
+}
+
+###
+POST {{URL_API}}/usuarios
+Content-Type: application/json
+
+{
+  "nome":"Aderbal2",
+  "cpf": "12345678900",
+  "email":"email2@if.com",
+  "senha": "222222"
+}
+
+###
+POST {{URL_API}}/usuarios/login
+Content-Type: application/json
+
+{
+  "email":"email2@if.com",
+  "senha": "222222"
+}
+
+###
+PATCH  {{URL_API}}/usuarios/{{idUsuarioMudar}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nome":"Aderbal9999",
+  "email":"email2@if22222222222.com",
+  "senha": "2222222222233333333"
+}
+
+###
+DELETE {{URL_API}}/usuarios/{{idUsuarioDel}}
+Authorization: Bearer {{token}}
+
